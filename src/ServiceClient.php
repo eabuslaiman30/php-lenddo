@@ -64,6 +64,22 @@ class ServiceClient extends Base
 		));
 	}
 
+    /**
+     * Calls the Lenddo Service with the provided client id to return a multiple client score result.
+     *
+     * @param string $application_id
+     * @return \Lenddo\clients\guzzle_handlers\response\ResponseInterface
+     */
+    public function applicationMultiscore($application_id, $partner_script_id)
+    {
+        /*return $this->_get($this->_hosts['score_service'], 'ClientScore/' . $application_id, array(
+            'partner_script_id' => $partner_script_id
+        ));*/
+        return $this->_get($this->_hosts['score_service'], 'ApplicationMultipleScores/' . $application_id, array(
+                        'partner_script_id' => $partner_script_id
+                ));
+    }
+
 	/**
 	 * @param $application_id - This is your unique application id.
 	 * @param $partner_script_id - This is the partner script ID that you created this application with.
